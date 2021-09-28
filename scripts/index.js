@@ -4,7 +4,7 @@ const giftbox = document.getElementById('merrywrap');
 const canvasC = document.getElementById('c');
 $('.giftbox').attr('data-content','Món quà đầu tiên \n Nhấn vào đây !');
 const config = {
-  birthdate: 'Sep 28, 2021',
+  birthdate: 'Sep 29, 2021',
   name: 'BERI'
 };
 
