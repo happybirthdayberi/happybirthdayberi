@@ -34,19 +34,19 @@ li span {
   font-size: 4.5rem;
 }
 .merrywrap {
-  position: absolute;
-  right: 40px;
+  /* position: absolute; */
+  /* right: 40px;
   left: 40px;
   bottom: 80px;
-  top: 40px;
+  top: 40px; */
 }
 .giftbox {
   position: absolute;
-  width: 300px;
-  height: 200px;
+  width: 200px;
+  height: 150px;
   left: 50%;
-  margin-left: -150px;
-  bottom: 0;
+  margin-left: -100px;
+  bottom: 10px;
   z-index: 10;
 }
 .giftbox > div {
@@ -63,13 +63,14 @@ li span {
   position: absolute;
   color: #fff;
   width: 100%;
-  content: "Click Me!";
+  content: attr(data-content);
   left: 0;
   bottom: 0;
-  font-size: 24px;
+  font-size: 22px;
   text-align: center;
   transform: rotate(-20deg);
   transform-origin: 0 0;
+  white-space: pre;
 }
 .giftbox .cover {
   width: 100%;

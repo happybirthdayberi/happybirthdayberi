@@ -9,9 +9,23 @@
   <link rel="stylesheet" href="styles/flexbox-center-container.css" media="all">
   <link rel="stylesheet" href="styles/system-fonts.css" media="all">
   <link rel="stylesheet" href="styles/style.css" media="all">
+  <style>
+    #warningHeadphone {
+      position: absolute;
+      top: 0px;
+      background-color: red;
+      color: white;
+      padding: 5px;
+      font-size: 15px;
+      font-weight: bold;
+      text-align: center;
+      width: 100%;
+    }
+  </style>
 </head>
 
 <body>
+  <div id="warningHeadphone">Nhớ đeo tai nghe vào em nhé ^^</div>
   <canvas id=c></canvas>
   <canvas id="confetti"></canvas>
   <div class="container" id="count">
@@ -23,7 +37,7 @@
       <li><span id="second"></span>seconds</li>
     </ul>
   </div>
-  <div id="merrywrap" class="merrywrap">
+  <div id="merrywrap">
     <canvas id="snowfall"></canvas>
     <div class="giftbox">
       <div class="cover">
@@ -31,9 +45,18 @@
       </div>
       <div class="box"></div>
     </div>
+  </div>
     <button id="next-gift" style="display: none;">Next gift</div>
+      <audio style="display: none;" id="autoplay" controls 🔃>
+        <source src="./HappyBirthdayPianoVersion-Instrumen_yknt.mp3">
+      </audio>
 </body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="scripts/confetti.min.js" charset="utf-8"></script>
 <script src="scripts/index.js" charset="utf-8"></script>
+<script>
+  
+
+</script>
 
 </html>

@@ -2,9 +2,9 @@ const count = document.getElementById('count');
 const head = document.getElementById('head');
 const giftbox = document.getElementById('merrywrap');
 const canvasC = document.getElementById('c');
-
+$('.giftbox').attr('data-content','Món quà đầu tiên \n Nhấn vào đây !');
 const config = {
-  birthdate: 'Sep 29, 2021',
+  birthdate: 'Sep 28, 2021',
   name: 'BERI'
 };
 
@@ -487,15 +487,45 @@ x = setInterval(function() {
     }
 
     function showfireworks() {
+      document.getElementById('autoplay').play();
       canvasC.style.display = 'initial';
       setTimeout(anim, 1500);
-
-      // setTimeout(() => {
-      //   let box = merrywrap.getElementsByClassName('giftbox')[0];
-      //   box.style.opacity = 1;
-      // }, 10000)
+      if(document.getElementById('warningHeadphone ')) {
+        document.getElementById('warningHeadphone ').style.display = 'none'
+      }
+      setTimeout(() => {
+        let box = merrywrap.getElementsByClassName('giftbox')[0];
+        setTimeout(() => {
+          box.style.opacity = 0.2;
+          setTimeout(() => {
+            box.style.opacity = 0.4;
+            setTimeout(() => {
+              box.style.opacity = 0.6;
+              setTimeout(() => {
+                box.style.opacity = 0.8;
+                setTimeout(() => {
+                  box.onclick = () => {
+                    stepClass(1);
+                    setTimeout(() => {
+                      stepClass(2);
+                      setTimeout(() => {
+                        stepClass(4)
+                        box.style.opacity = 0;
+                        window.location.href = '/gift-2.html'
+                      }, 2000);
+                    }, 2000);
+                  }
+                  box.style.opacity = 1;
+                  $('#merrywrap').removeClass('step-4')
+                  $('.giftbox').attr('data-content','Món quà thứ 2 \n Nhấn nhấn ... !');
+                }, 500);
+              }, 500);
+            }, 500);
+          }, 500);
+        }, 500);
+      }, 10000)
     }
-
+  
     init();
   }
 

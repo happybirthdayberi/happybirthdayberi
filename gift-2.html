@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Happy Birthday!</title>
+
+  <link rel="stylesheet" href="styles/birthdaycard.css" media="all">
+  <link rel="stylesheet" href="styles/style.css" media="all">
+</head>
+<body>
+  <canvas id=c></canvas>
+  <canvas id="confetti"></canvas>
+    <div id="card">
+        <div id="card-inside">
+          <div class="wrap">
+            <p>Hi babei,</p>
+            <p>Năm nay dịch covid không đi đâu được, nên ngồi làm cái này cho em, hy vọng em sẽ vui. </p>
+            <p>Chúc em sinh nhật vui vẻ, tuổi mới xinh đẹp hơn, học giỏi hơn.</p>
+            <p>Anh yêu em!</p>
+            <p class="signed">Việt Anh,</p>
+            
+          </div>
+        </div>
+    
+        <div id="card-front">
+          <div class="wrap">
+            <h1>Happy Birthday!</h1>
+          </div>
+          <button id="open">&gt;</button>
+          <button id="close">&lt;</button>
+        </div>
+      </div>
+
+      <div id="merrywrap">
+        <canvas id="snowfall"></canvas>
+        <div class="giftbox">
+          <div class="cover">
+            <div></div>
+          </div>
+          <div class="box"></div>
+        </div>
+      </div>
+
+      <audio style="display: none;" id="autoplay" controls 🔃>
+        <source src="./AnhNangCuaAnhChoEmDenNgayMaiOstPianoCover-AnCoong-4745377.mp3">
+      </audio>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="scripts/confetti.min.js" charset="utf-8"></script>
+
+<script>
+  const confettiSettings = { target: 'confetti' };
+const confetti = new window.ConfettiGenerator(confettiSettings);
+confetti.render();
+let box = merrywrap.getElementsByClassName('giftbox')[0];
+box.style.opacity = 0;
+$('.giftbox').attr('data-content','Món quà thứ 3 \n Bấm vào đê !');
+
+function stepClass(step) {
+      let merrywrap = document.getElementById('merrywrap');
+      merrywrap.className = 'merrywrap';
+      merrywrap.className = 'merrywrap step-' + step;
+    }
+    
+(function() {
+  document.getElementById('autoplay').play();
+  function $(id) {
+    return document.getElementById(id);
+  }
+
+  var card = $('card'),
+      openB = $('open'),
+      closeB = $('close'),
+      timer = null;
+  console.log('wat', card);
+  openB.addEventListener('click', function () {
+    card.setAttribute('class', 'open-half');
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(function () {
+      card.setAttribute('class', 'open-fully');
+      timer = null;
+      setTimeout(()=>{
+        box.style.opacity = 0.5;
+        setTimeout(()=>{
+        box.style.opacity = 1;
+        box.onclick = () => {
+          stepClass(1);
+                    setTimeout(() => {
+                      stepClass(2);
+                      setTimeout(() => {
+                        stepClass(4)
+                        box.style.opacity = 0;
+                        window.location.href = '/gift-3.html'
+                      }, 2000);
+                    }, 2000);
+        }
+      }, 500)
+      }, 20000)
+    }, 1000);
+  });
+
+  closeB.addEventListener('click', function () {
+    card.setAttribute('class', 'close-half');
+    if (timer) clearTimerout(timer);
+    timer = setTimeout(function () {
+      card.setAttribute('class', '');
+      timer = null;
+    }, 1000);
+  });
+
+}());
+</script>
